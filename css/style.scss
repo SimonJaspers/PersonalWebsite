@@ -1,0 +1,319 @@
+@mixin breakpoint($point) {
+  @if $point == big {
+    @media (max-width: 1400px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 1200px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 600px), (max-device-width:480px)  { @content; }
+  }
+}
+
+
+$textColor: #333;
+$darkGrey: #63636a;
+$green: #AFF53D;
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+
+
+}
+
+html {
+	font-size: 20px;
+	line-height:1.5;
+	font-family: 'Noto Serif', serif;
+	color: $textColor;
+
+	@include breakpoint(small) {
+		font-size:16px;
+	}
+}
+
+a {
+	color:$textColor;
+}
+
+blockquote {
+	margin-left:-2.5em;
+	font-size:.8em;
+
+	@include breakpoint(small) {
+		margin-left:0;
+	}
+
+
+	p { 
+		font-family: 'Noto Serif', serif;
+		border-left: 5px solid $darkGrey;
+		
+		padding-left: 1em;
+		font-style:italic;
+	}
+	footer {
+		text-align:right;
+		font-size:.8em;
+		font-color:$darkGrey;
+
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif;
+	margin-top:1em;
+}
+
+h1 {
+	font-size:1.5em;
+}
+h2 {
+	font-size:1.2em;
+	font-family: 'Noto Serif', serif;
+	font-style:italic;
+}
+
+::selection {
+	background: #333; /* Safari */
+	color:white;
+	}
+::-moz-selection {
+	background: #333; /* Firefox */
+	color:white;
+}
+
+
+
+figcaption {
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
+	font-size:14px;
+	color: $darkGrey;
+
+	margin-bottom:1em;
+}
+
+
+.bg-pic-header, .page-footer {
+	p {
+		background: $darkGrey;
+		padding:1em;
+	}
+	color:#eee;
+
+}
+.page-footer {
+	margin-top:3rem;
+}
+
+.bg-pic-header {
+	height:400px;
+	position:relative;
+	margin-bottom:1em;
+
+	transition:height .3s ease-in-out;
+
+	@include breakpoint(small) {
+		height:200px;
+	}
+
+	.hero {
+		position:absolute;
+		height:100%;
+		width:100%;
+
+
+		background-size:cover;
+		background-position:center left;
+	}
+	#simon {
+		background-image: url('/images/simon_h.jpg');
+	}
+	#camera {
+		background-image: url('/images/around-my-desk/nikon-fe.jpg');
+	}
+}
+
+//Helpers
+.align-right {
+	text-align:right;
+}
+
+.intro {
+	font-size:1.2em;
+}
+
+.centered-block {
+	width:66.7%;
+	max-width:800px;
+	margin:0 auto 0 auto;
+
+	@include breakpoint(small) {
+		max-width:600px;
+		width:auto;
+
+		padding:1em;
+	}
+
+}
+
+.main {
+	p {
+		margin-bottom:1em;
+	}
+
+	position:relative;
+	
+	@extend .centered-block;
+
+}
+
+.story-section {
+	margin-top: 3rem;
+}
+.story-paragraph {
+	margin-top:1rem;
+}
+.inline-image {
+	width:100%;
+	margin-bottom: .25em;
+}
+
+.full-width-image {
+	width:100%;
+	margin-top:1.5rem;
+	img {
+		width: 100%;
+	}
+	figcaption {
+		@extend .centered-block;
+	}
+}
+
+.pic-grid {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding:.25em .5em;
+	figure {
+		padding:.25em .25em 0;
+	}
+	.portrait {
+		flex: 1;
+	}
+	.landscape {
+		flex: 2.23;
+	}	
+	.full {
+		flex: 1 100%;
+	}
+
+}
+
+.pic-grid-small {
+	@extend .pic-grid;
+	@extend .centered-block;
+
+
+	padding:.25em 0;
+	width:75%;
+	max-width:1100px;
+
+	img {
+		max-width: 100%;
+	}
+
+	@include breakpoint(small) {
+		width:100%;
+		padding:.25em;
+	}
+}
+
+.pic-story-header {
+	position:relative;
+
+	figure {
+		img {
+			width:100%;
+			min-height:150px;
+		}
+		&:after {
+			content:"";
+			position:absolute;
+			top: 0;
+			left: 0;
+			width:100%;
+			height:100%;
+			background: linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 90%);
+		}
+	}
+	hgroup {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		text-align:center;
+		color:#eee;
+
+	}
+	h1 {
+		font-size:3rem;
+		text-transform:uppercase;
+
+		@include breakpoint(small) {
+			font-size:2rem;
+			padding:0 1rem;
+		}
+	}
+	h2 {
+		font-weight:normal;
+		&:before, &:after {
+			content: "~";
+			margin:0 .25em;
+		}
+		&:after {
+		}
+
+	}
+}
+
+.pic-grid-small .pic-link {
+	position: relative;
+	overflow: hidden;
+	transition: opacity .5s;
+
+	figcaption {
+		color:white;
+		text-decoration: none;
+		font-size:1.75rem;
+		text-transform: uppercase;
+		padding:.25rem .75rem;
+	
+		position:absolute;
+		width:100%;
+		top:0;
+		transform: translate3d(0, -100%, 0);
+		opacity:0;
+		transition: all .4s;
+	}
+	&:hover {
+		figcaption {
+			transform: translate3d(0,0,0);
+			opacity:1;
+		}
+	}
+	.title {
+		display:block;
+	}
+	@include breakpoint(small) {
+		flex: 1 100%;
+		figcaption {
+			transform: translate3d(0,0,0);
+			opacity:1;
+		}
+	}
+}
+
