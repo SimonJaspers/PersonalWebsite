@@ -1,0 +1,15 @@
+@mixin breakpoint($point) {
+  @if $point == big {
+    @media (max-width: 1400px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 1200px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 600px), (max-device-width:480px)  { @content; }
+  }
+}
+
+%sans-serif {
+	font-family: 'Lato', sans-serif;
+}

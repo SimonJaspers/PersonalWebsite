@@ -1,114 +1,63 @@
-@mixin breakpoint($point) {
-  @if $point == big {
-    @media (max-width: 1400px) { @content; }
-  }
-  @else if $point == medium {
-    @media (max-width: 1200px) { @content; }
-  }
-  @else if $point == small {
-    @media (max-width: 600px), (max-device-width:480px)  { @content; }
-  }
-}
+/*
+
+	Variables and mixins
+
+*/
+
+@import "_variables.scss";
+@import "_mixins.scss";
 
 
-$textColor: #333;
-$darkGrey: #63636a;
-$green: #AFF53D;
+/*
 
-* {
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
+	Site wide
 
+*/
 
-}
-
-html {
-	font-size: 20px;
-	line-height:1.5;
-	font-family: 'Noto Serif', serif;
-	color: $textColor;
-
-	@include breakpoint(small) {
-		font-size:16px;
-	}
-}
-
-a {
-	color:$textColor;
-}
-
-blockquote {
-	margin-left:-2.5em;
-	font-size:.8em;
-
-	@include breakpoint(small) {
-		margin-left:0;
-	}
-
-
-	p { 
-		font-family: 'Noto Serif', serif;
-		border-left: 5px solid $darkGrey;
-		
-		padding-left: 1em;
-		font-style:italic;
-	}
-	footer {
-		text-align:right;
-		font-size:.8em;
-		font-color:$darkGrey;
-
-	}
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Lato', sans-serif;
-	margin-top:1em;
-}
-
-h1 {
-	font-size:1.5em;
-}
-h2 {
-	font-size:1.2em;
-	font-family: 'Noto Serif', serif;
-	font-style:italic;
-}
-
-::selection {
-	background: #333; /* Safari */
-	color:white;
-	}
-::-moz-selection {
-	background: #333; /* Firefox */
-	color:white;
-}
-
-
-
-figcaption {
-	font-family: 'Lato', sans-serif;
-	font-weight:300;
-	font-size:14px;
-	color: $darkGrey;
-
-	margin-bottom:1em;
-}
-
-
-.bg-pic-header, .page-footer {
-	p {
-		background: $darkGrey;
-		padding:1em;
-	}
-	color:#eee;
-
-}
+@import "_global.scss";
 .page-footer {
 	margin-top:3rem;
+	background: $darkGrey;
+	padding:1em;
+	color: $nearlyWhite;
+}
+.site-nav {
+	float:right;
 }
 
+.nav-item {
+	@extend %sans-serif;
+
+	float:left;
+	list-style:none;
+	
+	
+	text-transform:uppercase;
+	font-size:1.2em;
+	
+	a {
+		transition: background .3s ease-in-out, box-shadow .5s;
+		padding:.5em .75em;
+		color:white;
+		text-decoration:none;
+		display:block;
+
+		&:hover {
+			background: rgba(0,0,0,0.2);
+			box-shadow: 0 -5px 0 0 #c0392b inset;
+		}
+	}
+}
+
+
+/* 
+
+	Main pages
+	Specific to the main pages (home, photo-series)
+
+*/
+
+// TODO: get the P out of here
 .bg-pic-header {
 	height:400px;
 	position:relative;
@@ -124,11 +73,14 @@ figcaption {
 		position:absolute;
 		height:100%;
 		width:100%;
-
+		
+		z-index: -1;
 
 		background-size:cover;
 		background-position:center left;
 	}
+
+	// The different hero images that are used around the site
 	#simon {
 		background-image: url('/images/simon_h.jpg');
 	}
@@ -308,6 +260,7 @@ figcaption {
 	.title {
 		display:block;
 	}
+	
 	@include breakpoint(small) {
 		flex: 1 100%;
 		figcaption {

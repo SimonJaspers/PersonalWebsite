@@ -1,16 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
 	<title>Simon Jaspers</title>
 
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimal-ui">
-	
-	<link href='http://fonts.googleapis.com/css?family=Lato:700|Noto+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="icon" 
-      type="image/png" 
-      href="/images/sj.png">
+	<!-- @include "../templates/head.kit" -->
 </head>
 <body>
 	<header class="bg-pic-header">
@@ -18,7 +11,7 @@
 		<figure>
 			<div class="hero" id="simon" alt="Simon"></div>
 		</figure>
-
+		<!-- @include "../templates/nav.kit" -->
 	</header>
 	<main class="main">
 		<p class="intro">
@@ -58,24 +51,8 @@
 		</blockquote>
 
 	</main>
-	<footer class="page-footer">
-		<p class="align-right">
-			Simon Jaspers - 2014
-		</p>
-	</footer>
+	<!-- @include "../templates/footer.kit" -->
 
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36410696-3']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
+	<script type="text/javascript" src="/script/ga.js"></script>
 </body>
 </html>
