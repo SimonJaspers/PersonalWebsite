@@ -1,10 +1,7 @@
-
 * {
 	margin:0;
 	padding:0;
 	box-sizing:border-box;
-
-
 }
 
 html {
@@ -12,6 +9,7 @@ html {
 	line-height:1.5;
 	font-family: 'Noto Serif', serif;
 	color: $textColor;
+	background: $backgroundColor;
 
 	@include breakpoint(small) {
 		font-size:16px;
@@ -24,7 +22,6 @@ a {
 
 blockquote {
 	margin-left:-2.5em;
-	font-size:.8em;
 
 	@include breakpoint(small) {
 		margin-left:0;
@@ -78,4 +75,17 @@ figcaption {
 	color: $darkGrey;
 
 	margin-bottom:1em;
+}
+
+.u-cf {
+	&:before, &:after {
+		display:table;
+		content: "";
+		clear:both;
+	}
+}
+
+.u-centered-two-thirds {
+	width: 66.6667%;
+	margin: 0 auto;
 }

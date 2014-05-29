@@ -1,0 +1,47 @@
+/*
+
+	@Site-nav
+
+*/
+
+.Nav {
+	@extend .u-cf;
+
+	box-shadow: 0 -1px 0 0 $lightGrey inset;
+	margin-bottom: 1em;
+
+	padding: .5em .5em 0;
+	font-size:.8em;
+
+}
+
+.Nav_list {
+	float:right;
+}
+
+.Nav_item {
+	float:left;
+	list-style:none;
+	
+	font-size:1em;
+}
+
+.Nav_link {
+	display:block;
+	padding:.5em .75em;
+
+	line-height:.8;
+	color: $darkGrey;
+	text-decoration:none;
+
+	transition: background .3s ease-in-out, box-shadow .5s;
+
+	&:hover {
+		color: black;
+		border-bottom: 1px solid black;
+	}
+}
+
+.Nav_link.is-active {
+	border-bottom: 1px solid black;
+}

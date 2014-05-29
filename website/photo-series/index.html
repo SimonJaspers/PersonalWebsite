@@ -4,8 +4,33 @@
 	<meta charset="UTF-8">
 	<title>Simon Jaspers</title>
 
-	<!-- @include "../Library/Modules/_Head/Head.kit" -->
-</head>
+	<!--
+
+	To make sure the head template is the same for all .html files, only use href and src attribute values
+	starting with '/' (i.e. specify all links relative to root)
+
+-->
+
+<meta 
+  charset="UTF-8">
+<meta 
+  name="viewport" 
+  content="initial-scale=1, maximum-scale=1, minimal-ui">
+
+<link 
+  href='http://fonts.googleapis.com/css?family=Lato:700|Noto+Serif:400,700,400italic' 
+  rel='stylesheet' 
+  type='text/css'>
+<link 
+  rel="stylesheet" 
+  href="/css/style.css">
+<link 
+  rel="icon" 
+  type="image/png" 
+  href="/images/sj.png">
+
+<script 
+  src="/script/script.min.js"></script></head>
 <body>
 	<header class="bg-pic-header">
 		
@@ -14,8 +39,19 @@
 		</figure>
 	</header>
 
-	<!-- @include "../Library/Modules/_Nav/Nav.kit" -->
-	
+	<nav class="Nav u-centered-two-thirds">
+	<ul class="Nav_list">
+		<li class="Nav_item">
+			<a data-activeclass="is-active" class="Nav_link js-addactiveclass" href="/">home</a>
+		</li>
+		<li class="Nav_item">
+			<a data-activeclass="is-active" class="Nav_link js-addactiveclass" href="/photo-series">photo series</a>
+		</li>
+		<li class="Nav_item">
+			<a data-activeclass="is-active" class="Nav_link js-addactiveclass" href="/blog">journal</a>
+		</li>
+	</ul>
+</nav>	
 
 	<main class="main">
 		<h1>Photo series</h1>
@@ -64,8 +100,11 @@
 			</figure>
 		</div>
 	</section>
-	<!-- @include "../Library/Modules/_Footer/Footer.kit" -->
-
+	<footer class="page-footer">
+	<p class="align-right">
+		Simon Jaspers - 2014
+	</p>
+</footer>
 	<script type="text/javascript" src="/script/ga.js"></script>
 </body>
 </html>

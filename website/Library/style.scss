@@ -1,53 +1,17 @@
 /*
 
-	Variables and mixins
+	Variables, mixins and utilities
 
 */
 
-@import "_variables.scss";
-@import "_mixins.scss";
+@import "Utilities/_variables.scss";
+@import "Utilities/_mixins.scss";
+@import "Utilities/_utilities.scss";
 
 
-/*
+@import "Modules/_Footer/_Footer.scss";
+@import "Modules/_Nav/_Nav.scss";
 
-	Site wide
-
-*/
-
-@import "_global.scss";
-.page-footer {
-	margin-top:3rem;
-	background: $darkGrey;
-	padding:1em;
-	color: $nearlyWhite;
-}
-.site-nav {
-	float:right;
-}
-
-.nav-item {
-	@extend %sans-serif;
-
-	float:left;
-	list-style:none;
-	
-	
-	text-transform:uppercase;
-	font-size:1.2em;
-	
-	a {
-		transition: background .3s ease-in-out, box-shadow .5s;
-		padding:.5em .75em;
-		color:white;
-		text-decoration:none;
-		display:block;
-
-		&:hover {
-			background: rgba(0,0,0,0.2);
-			box-shadow: 0 -5px 0 0 #c0392b inset;
-		}
-	}
-}
 
 
 /* 
@@ -57,13 +21,15 @@
 
 */
 
-// TODO: get the P out of here
+// Restyle using BEM
 .bg-pic-header {
 	height:400px;
 	position:relative;
-	margin-bottom:1em;
 
 	transition:height .3s ease-in-out;
+
+	// For before image load
+	background-color: $lightGrey;
 
 	@include breakpoint(small) {
 		height:200px;
@@ -74,8 +40,6 @@
 		height:100%;
 		width:100%;
 		
-		z-index: -1;
-
 		background-size:cover;
 		background-position:center left;
 	}

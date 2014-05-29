@@ -2,8 +2,33 @@
 <html lang="en">
 <head>
 	<title>Simon Jaspers - Barbecue</title>
-	<!-- @include "../../Library/Modules/_Head/Head.kit" -->
-</head>
+	<!--
+
+	To make sure the head template is the same for all .html files, only use href and src attribute values
+	starting with '/' (i.e. specify all links relative to root)
+
+-->
+
+<meta 
+  charset="UTF-8">
+<meta 
+  name="viewport" 
+  content="initial-scale=1, maximum-scale=1, minimal-ui">
+
+<link 
+  href='http://fonts.googleapis.com/css?family=Lato:700|Noto+Serif:400,700,400italic' 
+  rel='stylesheet' 
+  type='text/css'>
+<link 
+  rel="stylesheet" 
+  href="/css/style.css">
+<link 
+  rel="icon" 
+  type="image/png" 
+  href="/images/sj.png">
+
+<script 
+  src="/script/script.min.js"></script></head>
 <body>
 	<header class="pic-story-header">
 		<figure>
@@ -96,7 +121,10 @@
 		</section>
 
 	</main>
-	<!-- @include "../../Library/Modules/_Footer/Footer.kit" -->
-	<script type="text/javascript" src="/script/ga.js"></script>
+	<footer class="page-footer">
+	<p class="align-right">
+		Simon Jaspers - 2014
+	</p>
+</footer>	<script type="text/javascript" src="/script/ga.js"></script>
 </body>
 </html>
