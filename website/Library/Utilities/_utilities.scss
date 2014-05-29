@@ -88,4 +88,8 @@ figcaption {
 .u-centered-two-thirds {
 	width: 66.6667%;
 	margin: 0 auto;
+
+	@include breakpoint(small) {
+		width:100%;
+	}
 }

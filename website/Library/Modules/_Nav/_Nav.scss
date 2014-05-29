@@ -13,10 +13,18 @@
 	padding: .5em .5em 0;
 	font-size:.8em;
 
+	@include breakpoint(small) {
+		box-shadow: none;
+	}
 }
 
 .Nav_list {
 	float:right;
+
+	@include breakpoint(small) {
+		float:none;
+		text-align:center;
+	}
 }
 
 .Nav_item {
@@ -24,6 +32,12 @@
 	list-style:none;
 	
 	font-size:1em;
+
+	@include breakpoint(small) {
+		font-size:1.4em;
+		float:none;
+		display:inline-block;
+	}
 }
 
 .Nav_link {
